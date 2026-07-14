@@ -13,6 +13,11 @@
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
+		const url = new URL(request.url)
+		if (request.method === 'POST' && url.pathname === '/api/upload/audio/nextcloud') {
+			console.log('nextcloud found', request.body)
+		}
+
 		return new Response("Hello World!");
 	},
 } satisfies ExportedHandler<Env>;
