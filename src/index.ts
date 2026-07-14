@@ -10,7 +10,6 @@
  *
  * Learn more at https://developers.cloudflare.com/workers/
  */
-import createOpenCodeGoModel from './createOpenCodeGoModel';
 import { generateText } from 'ai';
 import createCfModel from './createCfModel';
 
