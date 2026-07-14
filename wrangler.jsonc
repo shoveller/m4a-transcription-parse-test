@@ -4,6 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
+	"account_id": "05d28f4d9bcd9c4b42a42c06420cb464",
 	"name": "m4a-transcription-parse-test",
 	"main": "src/index.ts",
 	"compatibility_date": "2026-07-14",
@@ -13,7 +14,19 @@
 	"upload_source_maps": true,
 	"compatibility_flags": [
 		"nodejs_compat"
-	]
+	],
+	"vars": {
+		"accountId": "05d28f4d9bcd9c4b42a42c06420cb464"
+	},
+	"secrets": {
+		"required": [
+			"OPENCODE_GO_KEY",
+			"GOOGLE_AI_KEY"
+		]
+	},
+	"ai": {
+		"binding": "AI"
+	}
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

@@ -10,6 +10,9 @@
  *
  * Learn more at https://developers.cloudflare.com/workers/
  */
+import createOpenCodeGoModel from './createOpenCodeGoModel';
+import { generateText } from 'ai';
+import createCfModel from './createCfModel';
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
@@ -18,6 +21,12 @@ export default {
 			console.log('nextcloud found', request.body)
 		}
 
-		return new Response("Hello World!");
+		const model = createCfModel(env)
+		const { text } = await generateText({
+			model,
+			prompt: '당신의 식별자는 무엇인가요?'
+		})
+
+		return new Response(text);
 	},
 } satisfies ExportedHandler<Env>;
